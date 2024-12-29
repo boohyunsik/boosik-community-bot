@@ -14,6 +14,16 @@ const openai = new OpenAI({
     apiKey: OPENAI_API_KEY
 });
 
+bot.command('helpme', async (ctx) => {
+    try {
+        console.log(`helpme command input, chatId: ${ctx.chat.id}`);
+        await ctx.reply(`/helpme: 지원 명령어를 조회합니다.\n/gpt {prompt}: GPT 4 모델에 질문합니다.`);
+    } catch (error) {
+        console.error('Error:', error);
+        await ctx.reply('Something was wrong, please retry or contract @i_am_boosik');
+    }
+})
+
 bot.command('gpt', async (ctx) => {
     try {
         const chatId = String(ctx.chat.id);
