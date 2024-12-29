@@ -44,6 +44,10 @@ bot.command('gpt', async (ctx) => {
         const response = await openai.chat.completions.create({
             model: 'chatgpt-4o-latest',
             messages: [
+                {
+                    role: 'system',
+                    content: '당신은 친절한 어시스트이며, 답변은 가능한 한 짧고 간결하게, 최대 5줄을 넘기지 않도록 해주세요.',
+                },
                 { role: 'user', content: prompt },
             ],
             max_tokens: 1000,
