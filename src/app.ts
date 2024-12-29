@@ -14,6 +14,18 @@ const openai = new OpenAI({
     apiKey: OPENAI_API_KEY
 });
 
+
+bot.command('project', async (ctx) => {
+    try {
+        console.log(`project command input, chatId: ${ctx.chat.id}`);
+        await ctx.reply(`현재 진행중인 프로젝트입니다.\n` +
+            `TG bot: https://github.com/boohyunsik/boosik-community-bot`);
+    } catch (error) {
+        console.error('Error:', error);
+        await ctx.reply('Something was wrong, please retry or contract @i_am_boosik');
+    }
+})
+
 bot.command('helpme', async (ctx) => {
     try {
         console.log(`helpme command input, chatId: ${ctx.chat.id}`);
